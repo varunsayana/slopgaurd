@@ -11,7 +11,7 @@ class PythonParser(BaseParser):
             return None
 
     def get_functions(self, tree: Any) -> List[Dict[str, Any]]:
-        functions = []
+        functions: List[Any] = []
         if tree is None:
             return functions
 
@@ -30,7 +30,7 @@ class PythonParser(BaseParser):
         return functions
 
     def get_classes(self, tree: Any) -> List[Dict[str, Any]]:
-        classes = []
+        classes: List[Any] = []
         if tree is None:
             return classes
 
@@ -47,7 +47,7 @@ class PythonParser(BaseParser):
         return classes
 
     def get_imports(self, tree: Any) -> List[Dict[str, Any]]:
-        imports = []
+        imports: List[Any] = []
         if tree is None:
             return imports
 

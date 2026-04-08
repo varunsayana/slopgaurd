@@ -91,15 +91,17 @@ class Analyzer:
                     rule_config, "enabled", True
                 ):  # active by default if not set
                     opts = getattr(rule_config, "options", {}) if rule_config else {}
-                    rule_instance = rule_class(opts)
+                    rule_instance = rule_class(opts)  # type: ignore
                     findings = rule_instance.evaluate(
                         file_path, code, parsed_ast, parser
                     )
 
                     # Optional severity override from config
-                    if rule_config and getattr(rule_config, "severity", None):
-                        for fnd in findings:
-                            fnd.severity = rule_config.severity
+                    if rule_config:
+                        severity_opt = getattr(rule_config, "severity", None)
+                        if severity_opt is not None:
+                            for fnd in findings:
+                                fnd.severity = severity_opt
 
                     # Apply diff filtering policy
                     for fnd in findings:

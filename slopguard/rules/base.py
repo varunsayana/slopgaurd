@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
-from typing import List, Any
+from typing import Optional,  List, Any
 from slopguard.models import Finding
 from slopguard.parsers.base import BaseParser
 
 
 class BaseRule(ABC):
-    def __init__(self, rule_id: str, config_options: dict = None):
+    def __init__(self, rule_id: str, config_options: Optional[dict] = None):
         self.rule_id = rule_id
         self.config_options = config_options or {}
 

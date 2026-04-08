@@ -68,8 +68,8 @@ def explain(rule_id: str):
 
     if rule_id in registry:
         # Instantiate with empty config just to read metadata
-        instance = registry[rule_id]({})
-        dummy_findings = instance.evaluate("dummy.py", "", None, None)
+        instance = registry[rule_id]({}) # type: ignore
+        dummy_findings = instance.evaluate("dummy.py", "", None, None) # type: ignore
         fnd = dummy_findings[0] if dummy_findings else None
 
         console.print(f"\n[bold magenta]Rule ID:[/bold magenta] {rule_id}")

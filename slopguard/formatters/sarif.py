@@ -5,7 +5,7 @@ from typing import Dict, Any
 class SarifFormatter:
     def format(self, results: Dict[str, Any]) -> str:
         findings = results.get("findings", [])
-        sarif = {
+        sarif: Dict[str, Any] = {
             "version": "2.1.0",
             "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
             "runs": [

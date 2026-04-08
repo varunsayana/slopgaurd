@@ -1,3 +1,4 @@
+from typing import Optional
 from slopguard.rules.broad_exception import BroadExceptionRule
 from slopguard.rules.dead_code_signals import DeadCodeSignalsRule
 from slopguard.rules.suspicious_comment_density import SuspiciousCommentDensityRule

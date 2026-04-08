@@ -1,5 +1,5 @@
 import ast
-from typing import List, Any
+from typing import Optional,  List, Any
 from slopguard.models import Finding, Severity, Confidence, Category, Scope
 from slopguard.rules.base import BaseRule
 from slopguard.parsers.base import BaseParser
@@ -7,7 +7,7 @@ from slopguard.parsers.python_parser import PythonParser
 
 
 class RepeatedExpensiveCallRule(BaseRule):
-    def __init__(self, config_options: dict = None):
+    def __init__(self, config_options: Optional[dict] = None):
         super().__init__("repeated_expensive_call_in_loop", config_options)
 
     def evaluate(

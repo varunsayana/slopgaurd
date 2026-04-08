@@ -1,11 +1,11 @@
-from typing import List, Any
+from typing import Optional,  List, Any
 from slopguard.models import Finding, Severity, Confidence, Category
 from slopguard.rules.base import BaseRule
 from slopguard.parsers.base import BaseParser
 
 
 class NoOpIndirectionRule(BaseRule):
-    def __init__(self, config_options: dict = None):
+    def __init__(self, config_options: Optional[dict] = None):
         super().__init__("no_op_indirection", config_options)
 
     def evaluate(

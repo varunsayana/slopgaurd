@@ -1,4 +1,4 @@
-from typing import List, Any
+from typing import Optional,  List, Any
 from slopguard.models import Finding, Severity, Confidence, Category
 from slopguard.rules.base import BaseRule
 from slopguard.parsers.base import BaseParser
@@ -6,7 +6,7 @@ import re
 
 
 class SuspiciousCommentDensityRule(BaseRule):
-    def __init__(self, config_options: dict = None):
+    def __init__(self, config_options: Optional[dict] = None):
         super().__init__("suspicious_comment_density", config_options)
         self.max_ratio = self.config_options.get("max_comment_ratio", 0.35)
 

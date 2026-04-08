@@ -4,7 +4,7 @@ Configuration schemas for SlopGuard.
 
 from pydantic import BaseModel, Field
 from typing import Dict, List
-import yaml
+import yaml  # type: ignore
 import os
 
 from slopguard.models import RuleConfig
